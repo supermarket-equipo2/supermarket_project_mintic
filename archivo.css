@@ -1,9 +1,0 @@
-.title {
-    display: flex;
-    align-items: center;
-  }
-.box.flex{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
