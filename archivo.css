@@ -1,9 +1,89 @@
-.title {
-    display: flex;
-    align-items: center;
-  }
-.box.flex{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+div.center{
+  text-align: center;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+ 
+  background-image: url(https://cdn.pixabay.com/photo/2013/07/18/10/56/railroad-163518_1280.jpg);
+  background-size: cover ;
+}
+/*wrap es la clase que madre que nos envuelve la lista de producto junto con las catégorias  */
+.wrap{
+  max-width: 1100px;
+  width: 90%;
+  margin: auto;
+}
+.wrap > h1{
+  color: red;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 15px 0px;
+}
+
+.wrap > h1:after{
+  content: '';
+  width: 100%;
+  height: 2px;
+  background:blue;
+  margin: 20px 0;
+}
+.store-wrapper{
+  display: flex;
+}
+/* category_list es la clase de la lista de los tipos de productos, en este caso tenemos a vegetales y a frutas */
+.category_list{
+  display: flex;
+  flex-direction: column;
+  width: 18%;
+}
+.category_list .category_item{
+  display: block;
+  width: 90%;
+  padding: 10px 0;
+  margin-bottom: 20px;
+  background: indianred;
+
+  text-align: center;
+  text-decoration: none;
+  color: rgb(19, 175, 97);
+}
+.category_list .ct_item-active{
+  background: rgb(132, 123, 120);
+}
+/* product_list es la lista de los pruductos de la tienda */
+.product_list{
+  display: flex;
+  width: 82%;
+  flex-wrap: wrap;
+  background: beige;
+}
+
+.product_list .product-item{
+  width: 22%;
+  margin-left: 3%;
+  margin-bottom: 20px;
+  box-shadow: 0px 0px 8px 0px rgb(25, 47, 36);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: flex-start;
+}
+.product_list .product-item img{
+  width: 100%;
+}
+
+.product_list .product-item a{
+  display: block;
+  width: 100%;
+  padding: 8px 0px;
+  background: rgb(132, 123, 120);
+  text-align: center;
+  text-decoration: none;
+  color: rgb(19, 175, 97);
 }
