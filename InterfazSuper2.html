@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" 
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="cosas.css" rel="stylesheet">
+</head>
+    <body>
+        <header>
+          <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <a class="navbar-brand alert-link" href="#">Supermercado grupo 2</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="InterfazSuper2.html">Inicio <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">Registrarse</a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">Trabaja con nosotros</a>
+                </li>
+              </ul>
+              <form class="form-inline mt-2 mt-md-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Buscar" aria-label="Buscar">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+              </form>
+                <form class="form-inline mt-2 mt-md-auto">
+               
+                    <div class="form-control mr-sm-2">
+                    <h5>Log in</h5>
+                      <input type="text" class="form-control mr-sm-2" name="usuario" id="usuario" placeholder="Usuario">
+                      <input type="password" class="form-control mr-sm-2" name="cont" id="cont" placeholder="Contraseña">
+                      
+                      <button type="submit" class="btn btn-outline-success my-2 mr-sm-2"> Ingresar </button>
+                      <div class="center">
+                        <p><a class="" href="#">¿Olvidaste la contraseña?</a></p>
+                      </div>
+                    </div>
+                      
+                    </form>
+            </div>
+          </nav>
+        </header>
+    
+    <main role="main">
+        <!-- Primera parte de la página, donde dice nuestras frutas, nuestras verduras, acerca de nosotros. -->
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+              <li data-target="#myCarousel" data-slide-to="1"></li>
+              <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img class="first-slide" src="https://thumbs.dreamstime.com/b/fondo-de-las-verduras-y-de-las-frutas-95499909.jpg" alt="First slide" width="1200" height="720">
+                <div class="container">
+                  <div class="carousel-caption text-left">
+                    <h1 style="color:rgb(255, 119, 0);">Nuestras frutas.</h1>
+                    <p>Contamos con una gran variedad de frutas, a las cuales puedes acceder de manera sencilla, solo debes oprimir el botón de abajo</p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">¡Compra frutas y se feliz!</a></p>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img class="second-slide" src="https://es.beyondtype2.org/wp-content/uploads/2019/06/BT2-HEADER-ADD-FRUIT-VEGETABLES.png" alt="Second slide">
+                <div class="container">
+                  <div class="carousel-caption">
+                    <h1 style="color:rgb(255, 119, 0);">Nuestras verduras</h1>
+                    <p>Las verduras te ayudan con tu salud, te hacen sentir mejor y ayudan a prevenir enfermedades. No te vayas sin ellas, puedes ver todo lo que tenemos para ofrecerte en el siguiente botón.</p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">¡Buscame de seguro sabre rico en tu plato!</a></p>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img class="third-slide" src="https://i.pinimg.com/originals/5b/5b/68/5b5b68ddf9de812ffc941238e66049ac.png" alt="Third slide">
+                <div class="container">
+                  <div class="carousel-caption text-right">
+                    <h1 style="color:rgb(255, 119, 0);">Acerca de nosotros.</h1>
+                    <p style="color:rgb(10, 19, 19);">Acá podemos contar un poco de nosotros como empresa xd.</p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Conócenos</a></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+        </div>
+    
+        <!-- Lista de productos. -->
+        <section class="container my-5 py-5">
+            <h3 class="text-uppercase text-center mb-4">Bienvenidos a "Nombre del Supermercado"</h3>
+            <p class="lead text-center mb-5">Les damos la bienvenida a nuestro supermercado, en donde podrás encontrar deliciosos vegetales y frutas frescas. Esperamos encuentres lo que estas buscando, ¡disfruta de tu compra!</p>
+            <div class="card-deck">
+              <div class="card">
+                <img class="card-img-top img-fluid" src="https://media.metrolatam.com/2021/02/04/600pxreddeliciou-5af8a704e215b8551fb304dae2bfa054.jpg" alt="Card image cap">
+                <div class="card-block">
+                  <h4 class="card-title">Manzana</h4>
+                  <p class="card-text">Puede hacerse una descripción del producto si se quiere.</p>
+                  <a class="btn btn-primary" href="#" role="button">Agregar</a>
+                </div>
+              </div>
+              <div class="card">
+                <img class="card-img-top img-fluid" src="https://dam.cocinafacil.com.mx/wp-content/uploads/2018/05/propiedades-de-la-pera-salud-belleza.jpg" alt="Card image cap">
+                <div class="card-block">
+                  <h4 class="card-title">Pera</h4>
+                  <p class="card-text">Puede hacerse una descripción del producto si se quiere.</p>
+                  <a class="btn btn-primary" href="#" role="button">Agregar</a>
+                </div>
+              </div>
+              <div class="card">
+                <img class="card-img-top img-fluid" src="https://mejorconsalud.as.com/wp-content/uploads/2015/06/brocoli-ramas.jpg" alt="Card image cap">
+                <div class="card-block">
+                  <h4 class="card-title">Brocoli</h4>
+                  <p class="card-text">Puede hacerse una descripción del producto si se quiere.</p>
+                  <a class="btn btn-primary" href="#" role="button">Agregar</a>
+                </div>
+              </div>
+            </div>
+            </section>
+         
+    
+    
+          <!-- FOOTER -->
+        <footer class="container">
+            <p class="float-right"><a href="#">Regresa arriba</a></p>
+            <p>&copy; 2022 Compañia, Inc. &middot; <a href="#">Términos</a> &middot; <a href="#">Privacidad</a> &middot; <a href="#">Proveedores</a></p>
+        </footer>
+    </main>
+    
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+            <!-- jQuery first, then Tether, then Bootstrap JS. -->
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" 
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" 
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+            <script>src ="superJS.js"</script>
+            <script src="/docs/5.2/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+        </body>
+</html>
