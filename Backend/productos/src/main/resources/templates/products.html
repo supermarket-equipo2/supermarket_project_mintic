@@ -71,6 +71,7 @@
           <td th:text="${product.cantidadProducto}"></td>
           <td th:text="${product.proveedorProducto}"></td>
           
+          
           <td>
             <a
               th:href="@{/products/edit/{id}(id=${product.id})}"
@@ -82,7 +83,7 @@
               class="btn btn-danger"
               >Borrar</a
             >
-          </td>
+          </td> 
         </tr>
       </tbody>
     </table>
