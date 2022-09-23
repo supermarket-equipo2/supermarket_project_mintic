@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de productos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+<body>
+    <!-- Inicio de la barra de navegación -->
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Sistema de gestión de productos</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Gestión de productos</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+    <!-- Final de la barra de navegación -->
+    <!-- Inicio de mi formulario -->
+    <div class="container mt-4">
+        <div class="row">
+            <!--Inicio del card-->
+
+        <div class="card text-center">
+            <div class="card-body">
+              <h1 class="card-title">Editar producto</h1>
+              <!--Inicio del formulario-->
+  
+              <form
+                th:action="@{/products/{id} (id=${product.id})}"
+                th:object="${product}"
+                method="POST"
+              >
+                <div class="mb-3">
+                  <div class="form-group">
+                    <label>Nombre del producto</label>
+                        <input
+                            type="text"
+                            name="productName"
+                            th:field="*{productName}"
+                            class="form-control"
+                            placeholder="Ingrese el nombre del producto"
+                        />
+                  </div>
+                  <div class="form-group">
+                    <label>Tipo</label>
+                    <select
+                      th:field="${product.type}"
+                      name="type"
+                      class="form-control"
+                      multiple="true"
+                    >
+                      <option
+                        th:each="type :${typeList}"
+                        th:value="${type.id}"
+                        th:text="${type.name}"
+                      />
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label>Precio del producto</label>
+                            <input
+                              type="text"
+                              name="productPrice"
+                              th:field="*{productPrice}"
+                              class="form-control"
+                              placeholder="Ingrese el precio unitario del producto"
+                            />
+                  </div>
+                  <div class="form-group">
+                    <label>Cantidad en inventario</label>
+                    <input
+                      type="text"
+                      name="cantidadProducto"
+                      th:field="*{cantidadProducto}"
+                      class="form-control"
+                      placeholder="Ingrese la cantidad del producto en inventario"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label>Nombre del proveedor</label>
+                    <input
+                      type="text"
+                      name="proveedorProducto"
+                      th:field="*{proveedorProducto}"
+                      class="form-control"
+                      placeholder="Ingrese el nombre del proveedor del producto"
+                    />
+                  </div>  
+  
+                  <div class="box-footer mt-4">
+                    <button type="submit" class="btn btn-danger">Enviar</button>
+                  </div>
+                </div>
+              </form>
+              <!--Fin del formulario-->
+            </div>
+          </div>
+          <!--Fin del card-->
+        </div>
+    </div>
+    <!-- Final de mi formulario -->
+</body>
+</html>
