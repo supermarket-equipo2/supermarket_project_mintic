@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -54,7 +54,7 @@
                               multiple="true"
                             >
                               <option
-                                th:each="type :${typeList}"
+                                th:each="type :${typesList}"
                                 th:value="${type.id}"
                                 th:text="${type.name}"
                               />
