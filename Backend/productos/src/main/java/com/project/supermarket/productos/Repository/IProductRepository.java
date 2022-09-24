@@ -11,6 +11,6 @@ import com.project.supermarket.productos.Entity.Product;
 public interface IProductRepository extends JpaRepository<Product, Long> {
 
     @Query("FROM Product s WHERE s.productName LIKE :name")
-    public List<Product> findByNameContaining(@Param("productName") String name);
+    public List<Product> findByNameContaining(@Param("name") String name);
 
 }
