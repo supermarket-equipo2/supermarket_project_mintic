@@ -51,7 +51,7 @@
       <thead class="table-dark">
         <tr>
           <th>Nombre del producto</th>
-          <th>Tipo de producto</th>
+          <!-- <th>Tipo de producto</th> -->
           <th>Precio unitario</th>
           <th>Cantidad en inventario</th>
           <th>Nombre del proveedor</th>
@@ -61,12 +61,12 @@
       <tbody>
         <tr th:each="product: ${products}">
           <td th:text="${product.productName}"></td>
-          <td>
+          <!-- <td>
             <th:block th:each="type,iter: ${product.type}">
               <label th:text="${type.name}" />
               <th:block th:if="${!iter.last}">, </th:block>
             </th:block>
-          </td>
+          </td> -->
           <td th:text="${product.productPrice}"></td>
           <td th:text="${product.cantidadProducto}"></td>
           <td th:text="${product.proveedorProducto}"></td>
