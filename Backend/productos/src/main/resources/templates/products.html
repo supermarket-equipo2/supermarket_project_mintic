@@ -33,6 +33,12 @@
       <h1>Lista de productos</h1>
     </div>
 
+     <!-- Mensaje de guardado con éxito -->
+  <div th:classappend="'alert-' + (${clase != null} ? ${clase} : info)" th:if="${mensaje != null}"
+  th:text="${mensaje}"
+  class="alert">
+</div>
+
     <div class="row">
       <div class="row">
         <div class="col-lg-3">

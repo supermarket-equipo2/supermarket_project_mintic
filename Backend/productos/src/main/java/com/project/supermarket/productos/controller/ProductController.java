@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 //import org.springframework.web.bind.annotation.RequestMapping;
 //import org.thymeleaf.engine.AttributeName;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.project.supermarket.productos.Repository.ITypeRepository;
 import com.project.supermarket.productos.service.ProductService;
@@ -46,6 +47,11 @@ public class ProductController {
         return "products";
     }
 
+    /**
+     * @param model
+     * @param flash
+     * @return
+     */
     @GetMapping("/products/new")
     public String createProductForm(Model model) {
 
@@ -58,8 +64,13 @@ public class ProductController {
     }
 
     @PostMapping("/products")
-    public String saveProduct(@ModelAttribute("product") Product product) {
+    public String saveProduct(@ModelAttribute("product") Product product, RedirectAttributes flash) {
         productService.saveProduct(product);
+        // Mensaje de éxito
+        flash.addFlashAttribute("mensaje", "Agregado correctamente")
+                .addFlashAttribute("clase", "success");
+        // Fin mensaje de éxito
+
         return "redirect:/products";
     }
 
@@ -76,7 +87,7 @@ public class ProductController {
     @PostMapping("/products/{id}")
     public String updateProduct(@PathVariable Long id,
             @ModelAttribute("product") Product product,
-            Model model) {
+            Model model, RedirectAttributes flash) {
         // sacar el estudiante de la b.d. por el id
         Product existentProduct = productService.getProductById(id);
         // cargarlo
@@ -89,12 +100,23 @@ public class ProductController {
         // guardar el estudiante actualizado
         productService.updateProduct(existentProduct);
 
+        // Mensaje de éxito
+        flash.addFlashAttribute("mensaje", "Actualizado correctamente")
+                .addFlashAttribute("clase", "success");
+        // Fin mensaje de éxito
+
         return "redirect:/products";
     }
 
     @GetMapping("/products/{id}")
-    public String deleteProduct(@PathVariable Long id) {
+    public String deleteProduct(@PathVariable Long id, RedirectAttributes flash) {
         productService.deleteProductById(id);
+
+        // Mensaje de éxito
+        flash.addFlashAttribute("mensaje", "Eliminado correctamente")
+                .addFlashAttribute("clase", "success");
+        // Fin mensaje de éxito
+
         return "redirect:/products";
     }
 
