@@ -87,3 +87,9 @@ body{
   text-decoration: none;
   color: rgb(19, 175, 97);
 }
+
+nav {
+  display: block;
+}
+
+

@@ -140,4 +140,9 @@ body {
     -webkit-overflow-scrolling: touch;
   }
 
+  .ir-carrito{
+      height: 20px;
+      width: 25px;
+  }
+
 
