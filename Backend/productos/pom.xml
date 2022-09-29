@@ -51,6 +51,12 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		<!-- Dependencia de google cloud -->
+		<dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-gcp-starter</artifactId>
+      <version>1.0.0.RELEASE</version>
+    </dependency>
 	</dependencies>
 
 	<build>
