@@ -71,8 +71,10 @@
 				<artifactId>appengine-maven-plugin</artifactId>
 				<version>2.4.4</version>
 				<configuration>
-    				<deploy.projectId>profound-ripsaw-364014</deploy.projectId>
-					<deploy.version>1.0.0</deploy.version>
+					<version>1</version>
+          			<projectId>GCLOUD_CONFIG</projectId>
+    				<!-- <deploy.projectId>profound-ripsaw-364014</deploy.projectId>
+					<deploy.version>1.0.0</deploy.version> -->
   				</configuration>
 			</plugin>
 		</plugins>
