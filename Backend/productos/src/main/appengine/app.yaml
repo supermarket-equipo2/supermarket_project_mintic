@@ -1,2 +1,6 @@
 runtime: java17
 instance_class: F1 #F1  Different instance classes allow you to use different amounts of memory. F1 instance class is the smallest instance.
+
+handlers:
+  - url: /.*
+    script: this field is required, but ignored
