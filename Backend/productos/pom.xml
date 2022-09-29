@@ -65,8 +65,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-		</plugins>
-		<!-- Plugin para hacer deploy en Google cloud -->
+			<!-- Plugin para hacer deploy en Google cloud -->
 		<plugin>
         <groupId>com.google.cloud.tools</groupId>
         <artifactId>appengine-maven-plugin</artifactId>
@@ -76,6 +75,8 @@
           <projectId>GCLOUD_CONFIG</projectId>
         </configuration>
       </plugin>
+		</plugins>
+		
 	</build>
 
 </project>
