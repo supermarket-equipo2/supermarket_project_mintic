@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 //import org.springframework.web.bind.annotation.RequestMapping;
 //import org.thymeleaf.engine.AttributeName;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -35,11 +36,16 @@ public class ProductController {
         this.typesList = this.typeRepository.findAllSortByName();
     }
 
-    @GetMapping("/")
-    public String home(Model model) {
-        model.addAttribute("products", productService.getAllProducts());
-        return "products";
+    @RequestMapping("/")
+    public String home() {
+        return "index";
     }
+    // Al descomentar esto, el home va a ser la página de la tabla de productos
+    // @GetMapping("/")
+    // public String home(Model model) {
+    // model.addAttribute("products", productService.getAllProducts());
+    // return "products";
+    // }
 
     @GetMapping("/products")
     public String listProducts(Model model) {
