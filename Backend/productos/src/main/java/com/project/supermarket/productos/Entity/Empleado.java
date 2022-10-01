@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "empleados")
-public class Empleados {
+public class Empleado {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Para que se autoincremente el id cada que guardamos un nuevo
@@ -32,10 +32,10 @@ public class Empleados {
     private int telefono;
 
     // Constructores
-    public Empleados() {
+    public Empleado() {
     }
 
-    public Empleados(Long id, @NotEmpty String nombre, @NotEmpty String apellido, @NotEmpty @Email String email,
+    public Empleado(Long id, @NotEmpty String nombre, @NotEmpty String apellido, @NotEmpty @Email String email,
             @NotNull int telefono) {
         this.id = id;
         this.nombre = nombre;
