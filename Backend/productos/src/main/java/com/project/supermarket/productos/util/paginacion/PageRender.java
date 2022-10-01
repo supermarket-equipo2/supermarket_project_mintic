@@ -75,4 +75,8 @@ public class PageRender<T> {
         return page.hasPrevious();
     }
 
+    public boolean isFirst() {
+        return page.isFirst();
+    }
+
 }
