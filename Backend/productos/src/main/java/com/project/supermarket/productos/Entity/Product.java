@@ -14,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "Products")
@@ -23,15 +24,19 @@ public class Product {
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long id;
 
+        @NotEmpty
         @Column(name = "productName", nullable = false)
         private String productName;
 
+        @NotEmpty
         @Column(name = "productPrice")
         private Float productPrice;
 
+        @NotEmpty
         @Column(name = "cantidadProducto")
         private Integer cantidadProducto;
 
+        @NotEmpty
         @Column(name = "proveedorProducto")
         private String proveedorProducto;
 
