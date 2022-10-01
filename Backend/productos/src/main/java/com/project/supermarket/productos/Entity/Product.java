@@ -24,19 +24,19 @@ public class Product {
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long id;
 
-        @NotEmpty
+        // @NotEmpty
         @Column(name = "productName", nullable = false)
         private String productName;
 
-        @NotEmpty
+        // @NotEmpty
         @Column(name = "productPrice")
         private Float productPrice;
 
-        @NotEmpty
+        // @NotEmpty
         @Column(name = "cantidadProducto")
         private Integer cantidadProducto;
 
-        @NotEmpty
+        // @NotEmpty
         @Column(name = "proveedorProducto")
         private String proveedorProducto;
 
