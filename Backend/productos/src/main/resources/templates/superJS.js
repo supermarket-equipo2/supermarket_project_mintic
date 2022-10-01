@@ -11,4 +11,11 @@ log.addEventListener('click', () => {
     log_in.classList.remove('show');
 });
 
+$(document).ready(function() {             
+    $('#loginModal').modal('show');
+      $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+      })
+    });
+
 
