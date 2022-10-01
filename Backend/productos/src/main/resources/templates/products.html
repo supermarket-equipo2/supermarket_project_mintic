@@ -101,7 +101,7 @@
             >
             <a
               th:href="@{/products/{id}(id=${product.id})}"
-              class="btn btn-danger"
+              class="btn btn-danger" onclick="return confirm('¿Estás seguro de eliminar este producto?');"
               >Borrar</a
             >
           </td> 

@@ -27,6 +27,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.project.supermarket.productos.Entity.Empleado;
 import com.project.supermarket.productos.service.EmpleadoService;
 import com.project.supermarket.productos.util.paginacion.PageRender;
+import com.project.supermarket.productos.util.reportes.EmpleadoExporterExcel;
+import com.project.supermarket.productos.util.reportes.EmpleadoExporterPDF;
+import com.lowagie.text.DocumentException;
 
 @Controller
 public class EmpleadoController {
@@ -115,4 +118,39 @@ public class EmpleadoController {
         return "redirect:/empleados";
     }
 
+    @GetMapping("/empleados/exportarPDF")
+    public void exportarListadoDeEmpleadosEnPDF(HttpServletResponse response) throws DocumentException, IOException {
+        response.setContentType("application/pdf");
+
+        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+        String fechaActual = dateFormatter.format(new Date());
+
+        String cabecera = "Content-Disposition";
+        String valor = "attachment; filename=Empleados_" + fechaActual + ".pdf";
+
+        response.setHeader(cabecera, valor);
+
+        List<Empleado> empleados = empleadoService.findAll();
+
+        EmpleadoExporterPDF exporter = new EmpleadoExporterPDF(empleados);
+        exporter.exportar(response);
+    }
+
+    @GetMapping("/empleados/exportarExcel")
+    public void exportarListadoDeEmpleadosEnExcel(HttpServletResponse response) throws DocumentException, IOException {
+        response.setContentType("application/octet-stream");
+
+        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+        String fechaActual = dateFormatter.format(new Date());
+
+        String cabecera = "Content-Disposition";
+        String valor = "attachment; filename=Empleados_" + fechaActual + ".xlsx";
+
+        response.setHeader(cabecera, valor);
+
+        List<Empleado> empleados = empleadoService.findAll();
+
+        EmpleadoExporterExcel exporter = new EmpleadoExporterExcel(empleados);
+        exporter.exportar(response);
+    }
 }
