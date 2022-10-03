@@ -56,7 +56,8 @@ public class EmpleadoController {
             RedirectAttributes flash) {
         Empleado empleado = empleadoService.findOne(id);
         if (empleado == null) {
-            flash.addFlashAttribute("error", "El empleado no existe en la base de datos");
+            flash.addFlashAttribute("mensaje", "El empleado no existe en la base de datos")
+                    .addFlashAttribute("clase", "error");
             return "redirect:/empleados";
         }
         modelo.put("empleado", empleado);
@@ -85,7 +86,8 @@ public class EmpleadoController {
 
         empleadoService.save(empleado);
         status.setComplete();
-        flash.addFlashAttribute("success", mensaje);
+        flash.addFlashAttribute("mensaje", mensaje)
+                .addFlashAttribute("clase", "success");
         return "redirect:/empleados";
     }
 
@@ -96,11 +98,13 @@ public class EmpleadoController {
         if (id > 0) {
             empleado = empleadoService.findOne(id);
             if (empleado == null) {
-                flash.addFlashAttribute("error", "El ID del empleado no existe en la base de datos");
+                flash.addFlashAttribute("mensaje", "El ID del empleado no existe en la base de datos")
+                        .addFlashAttribute("clase", "error");
                 return "redirect:/empleados";
             }
         } else {
-            flash.addFlashAttribute("error", "El ID del empleado no puede ser cero");
+            flash.addFlashAttribute("mensaje", "El ID del empleado no puede ser cero")
+                    .addFlashAttribute("clase", "error");
             return "redirect:/editar";
         }
 
@@ -113,7 +117,8 @@ public class EmpleadoController {
     public String eliminarCliente(@PathVariable(value = "id") Long id, RedirectAttributes flash) {
         if (id > 0) {
             empleadoService.delete(id);
-            flash.addFlashAttribute("success", "Empleado eliminado con exito");
+            flash.addFlashAttribute("mensaje", "Empleado eliminado con exito")
+                    .addFlashAttribute("clase", "success");
         }
         return "redirect:/empleados";
     }
