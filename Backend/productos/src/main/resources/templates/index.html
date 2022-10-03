@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head th:fragment="head">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -62,10 +63,10 @@
               </div>
 
                 <li class="nav-item active">
-                  <a class="nav-link" th:href="@{/products}">Gestión de productos</a>
+                  <a class="nav-link" sec:authorize="hasRole('ADMIN')" th:href="@{/products}">Gestión de productos</a>
                 </li>
                 <li class="nav-item active">
-                  <a class="nav-link" th:href="@{/empleados}">Gestión de empleados</a>
+                  <a class="nav-link" sec:authorize="hasRole('ADMIN')" th:href="@{/empleados}">Gestión de empleados</a>
                 </li>
                 
                 
@@ -246,7 +247,7 @@
                   <div class="carousel-caption text-left">
                     <h1 style="color:rgb(255, 119, 0); font-size: 4rem;">Nuestras frutas.</h1>
                     <p style="color:rgb(114, 149, 231); ;"><strong> Contamos con una gran variedad de frutas, a las cuales puedes acceder <br>de manera sencilla.</strong></p>
-                    <p><a class="btn btn-lg btn-primary" href="#" role="button">¡Compra frutas y sé feliz!</a></p>
+                    <p><a class="btn btn-lg btn-primary" href="#about" role="button">¡Compra frutas y sé feliz!</a></p>
                   </div>
                 </div>
               </div>
@@ -257,7 +258,7 @@
                   <div class="carousel-caption">
                     <h1 style="color:rgb(114, 149, 231); font-size: 4rem;" >Nuestras verduras</h1>
                     <p><strong> Las verduras te ayudan con tu salud, te hacen sentir mejor y ayudan a prevenir enfermedades. <br> No te vayas sin ellas, puedes ver todo lo que tenemos para ofrecerte en el siguiente botón.</strong></p>
-                    <p><a class="btn btn-lg btn-primary" href="#" role="button">¡Ricos sabores para tus platos!</a></p>
+                    <p><a class="btn btn-lg btn-primary" href="#about" role="button">¡Ricos sabores para tus platos!</a></p>
                   </div>
                 </div>
               </div>
@@ -274,7 +275,7 @@
         </div>
     
         <!-- Lista de productos. -->
-        <section class="container my-5 py-5">
+        <section class="container my-5 py-5" id="about">
             <h3 class="text-uppercase text-center mb-4">Bienvenidos al supermercado del equipo 2.</h3>
             <p class="lead text-center mb-5">Les damos la bienvenida a nuestro supermercado en donde podrás encontrar deliciosos vegetales y frutas frescas. Esperamos encuentres lo que estas buscando, ¡disfruta de tu compra!</p>
             <div class="card-deck">
