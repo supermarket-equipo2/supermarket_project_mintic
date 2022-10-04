@@ -182,6 +182,16 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
                      Fin botón login -->
                </li>
 
+                <!-- Inicio botón login -->
+                <li class="nav-item active">
+                  <div>
+                <form class="d-flex" th:action="@{/login}" method="get">
+                  <input class="btn btn-secondary" type="submit" value="Iniciar sesión" />
+               </form>
+              </div>
+              </li>
+                <!-- Fin botón login -->
+
                 <!-- Inicio botón logout -->
                 <li class="nav-item active">
                   <div>
