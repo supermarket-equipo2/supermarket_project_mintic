@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -61,7 +61,7 @@
                         <div class="col">&dollar; 2500 <span class="close">&#10005;</span></div>
                     </div>
                 </div>
-                <div class="back-to-shop"><a href="InterfazSuper2.html">&leftarrow;</a><span class="text-muted">Vuelve a la tienda.</span></div>
+                <div class="back-to-shop"><a th:href="@{/}">&leftarrow;</a><span class="text-muted">Vuelve a la tienda.</span></div>
             </div>
             <div class="col-md-4 summary">
                 <!-- Esta es la parte del resumen del pedido. -->
