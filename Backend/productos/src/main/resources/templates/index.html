@@ -75,6 +75,11 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
                 
               </ul>
               <ul class="navbar-nav ml-auto">
+
+                
+                     
+                  
+
                 <!-- Barra de búsqueda -->
                 <!-- <li>
                   <form class="form-inline mt-2 mt-md-0">
@@ -182,6 +187,13 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
                      Fin botón login -->
                </li>
 
+               <!-- Inicio Mensaje logout exitoso -->
+               <li th:if="${param.logout}" class="nav-item"><a class="nav-link">Ha cerrado sesión correctamente
+              </a>
+              </li>
+              <!-- Fin Mensaje logout exitoso -->
+              
+              <div sec:authorize="!isAuthenticated()">
                 <!-- Inicio botón login -->
                 <li class="nav-item active">
                   <div>
@@ -191,16 +203,46 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
               </div>
               </li>
                 <!-- Fin botón login -->
-
+              </div>
+              
+                <div sec:authorize="isAuthenticated()">
                 <!-- Inicio botón logout -->
                 <li class="nav-item active">
-                  <div>
-                <form class="d-flex" th:action="@{/logout}" method="post">
-                  <input class="btn btn-secondary" type="submit" value="Cerrar sesión" />
-               </form>
-              </div>
-              </li>
+                    <div>
+                      <!-- <form class="d-flex" th:action="@{/logout}" method="post" data-target="logoutSuccessModal"></form> -->
+                        <form class="d-flex" th:action="@{/logout}" method="post">
+                            <input class="btn btn-secondary" type="submit" value="Cerrar sesión" />
+                        </form>
+                    </div>
+                </li>
                 <!-- Fin botón logout -->
+                </div>
+
+                <!-- <div th:if="${param.logout}" class="alert alert-success">Logged out Sucessfully!</div> -->
+
+                <!-- Inicio Botón logout con spring security -->
+                <!-- Modal -->
+                  <!-- <div th:if="${param.logout}" class="modal fade" id="logoutSuccessModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">                 
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div> -->
+                <!-- Inicio Botón logout con spring security -->
+
+
 
               <li>
                 <a th:href="@{/CarritoCompras.html}"><i class="bi bi-cart4 px-3" style="color: rgb(255, 255, 255);"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16">
@@ -220,8 +262,32 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
         
           </nav>
         </header>
-    
+
+          <!-- Inicio Botón logout con spring security -->
+                <!-- Modal -->
+                  <!-- <div th:if="${param.logout}" class="modal fade" id="logoutSuccessModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">                 
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div> -->
+                <!-- Inicio Botón logout con spring security -->
+          
     <main role="main">
+
+    
         <!-- Primera parte de la página, donde dice nuestras frutas, nuestras verduras, acerca de nosotros. -->
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
