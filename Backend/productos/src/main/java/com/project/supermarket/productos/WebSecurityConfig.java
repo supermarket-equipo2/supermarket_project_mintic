@@ -10,7 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+// import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import com.project.supermarket.productos.service.IUsuarioService;
 
@@ -60,6 +60,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
+                .antMatchers(
+                        "/registro**",
+                        "/js/**",
+                        "/css/**",
+                        "/img/**")
+                .permitAll()
                 .antMatchers("/").permitAll()
                 .antMatchers("/empleados").permitAll()
                 .antMatchers("/empleados/form/*", "/empleados/eliminar/*").hasRole("ADMIN")
@@ -73,7 +79,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout()
                 .invalidateHttpSession(true)
                 .clearAuthentication(true)
-                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/?logout")
                 .permitAll();
 

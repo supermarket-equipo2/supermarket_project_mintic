@@ -21,10 +21,10 @@ import com.project.supermarket.productos.Entity.Rol;
 @Service
 public class UsuarioService implements IUsuarioService {
 
-    private IUsuarioRepository usuarioRepository;
-
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
+
+    private IUsuarioRepository usuarioRepository;
 
     public UsuarioService(IUsuarioRepository usuarioRepository) {
         this.usuarioRepository = usuarioRepository;
