@@ -6,15 +6,15 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.project.supermarket.productos.service.UsuarioService;
+import com.project.supermarket.productos.service.IUsuarioService;
 import com.project.supermarket.productos.dto.UsuarioRegistroDTO;
 
 @Controller
 @RequestMapping("/registro")
 public class RegistroUsuarioController {
-    private UsuarioService usuarioService;
+    private IUsuarioService usuarioService;
 
-    public RegistroUsuarioController(UsuarioService usuarioService) {
+    public RegistroUsuarioController(IUsuarioService usuarioService) {
         this.usuarioService = usuarioService;
     }
 
