@@ -53,21 +53,26 @@
 							<form th:action="@{/login}" method="post">
 								<div class="form-outline mb-4">
 									<input type="text" id="username" name="username"
-										class="form-control form-control-lg" /> <label
+										class="form-control form-control-lg" required autofocus="autofocus" placeholder="Digite su email"/> <label
 										class="form-label" for="typeEmailX-2">Nombre de
 										usuario</label>
 								</div>
 
 								<div class="form-outline mb-4">
 									<input type="password" id="password" name="password"
-										class="form-control form-control-lg" /> <label
+										class="form-control form-control-lg" required autofocus="autofocus" placeholder="Digite su password"/> <label
 										class="form-label" for="typePasswordX-2">Password</label>
 								</div>
 
-								<button class="btn btn-primary btn-lg btn-block" type="submit">Iniciar
+								<button class="btn btn-primary btn-lg btn-block" type="submit" name="login-submit" id="login-submit">Iniciar
 									sesión</button>
 
 							</form>
+							<div class="form-group">
+								<span>Si eres nuevo usuario <a th:href="@{/registro}">regístrate
+										aquí</a></span>
+							</div>
+
 
 							<hr class="my-4">
 
