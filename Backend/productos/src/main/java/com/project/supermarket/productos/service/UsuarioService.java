@@ -31,13 +31,13 @@ public class UsuarioService implements IUsuarioService {
     // config y el servicio, podemos intentar setter-based dependency injection, por
     // lo cual no vamos a usar este constructor si no un setter
 
-    // public UsuarioService( IUsuarioRepository usuarioRepository) {
-    // this.usuarioRepository = usuarioRepository;
-    // }
-
-    public void setUsuarioService(IUsuarioRepository usuarioRepository) {
-        this.usuarioRepository = usuarioRepository;
+    public UsuarioService( IUsuarioRepository usuarioRepository) {
+    this.usuarioRepository = usuarioRepository;
     }
+
+    // public void setUsuarioService(IUsuarioRepository usuarioRepository) {
+    //     this.usuarioRepository = usuarioRepository;
+    // }
 
     @Override
     public Usuario save(UsuarioRegistroDTO registroDTO) {
