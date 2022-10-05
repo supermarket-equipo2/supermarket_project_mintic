@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -21,12 +22,20 @@ import com.project.supermarket.productos.Entity.Rol;
 @Service
 public class UsuarioService implements IUsuarioService {
 
+    private IUsuarioRepository usuarioRepository;
+
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
-    private IUsuarioRepository usuarioRepository;
+    // Para solucionar el problema de dependencias circulares entre el security
+    // config y el servicio, podemos intentar setter-based dependency injection, por
+    // lo cual no vamos a usar este constructor si no un setter
 
-    public UsuarioService(IUsuarioRepository usuarioRepository) {
+    // public UsuarioService( IUsuarioRepository usuarioRepository) {
+    // this.usuarioRepository = usuarioRepository;
+    // }
+
+    public void setUsuarioService(IUsuarioRepository usuarioRepository) {
         this.usuarioRepository = usuarioRepository;
     }
 
