@@ -40,6 +40,21 @@ public class ProductController {
     public String home() {
         return "index";
     }
+
+    @RequestMapping("/carrito")
+    public String carrito_index() {
+        return "carrito";
+    }
+
+    @RequestMapping("/cart.html")
+    public String cart() {
+        return "cart";
+    }
+
+    @RequestMapping("/checkout.html")
+    public String checkout() {
+        return "checkout";
+    }
     // Al descomentar esto, el home va a ser la página de la tabla de productos
     // @GetMapping("/")
     // public String home(Model model) {
