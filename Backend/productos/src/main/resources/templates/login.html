@@ -50,22 +50,23 @@
 									</button>
 								</div>
 							</div> -->
-							<form th:action="@{/login}" method="post">
+							<form th:action="@{/login}" method="post" class="form-signin">
 								<div class="form-outline mb-4">
-									<input type="text" id="username" name="username"
-										class="form-control form-control-lg" /> <label
-										class="form-label" for="typeEmailX-2">Nombre de
-										usuario</label>
+									<input type="text" id="email" name="email"
+										class="form-control form-control-lg" th:placeholder="Email"/> <label
+										class="form-label">Email</label>
 								</div>
 
 								<div class="form-outline mb-4">
 									<input type="password" id="password" name="password"
-										class="form-control form-control-lg" /> <label
-										class="form-label" for="typePasswordX-2">Password</label>
+										class="form-control form-control-lg" th:placeholder="Password"/> <label
+										class="form-label">Password</label>
 								</div>
 
-								<button class="btn btn-primary btn-lg btn-block" type="submit">Iniciar
-									sesión</button>
+								<button class="btn btn-primary btn-lg btn-block" type="submit" th:text="Login"></button> 
+								<div class="form-group">
+									<span>Si eres nuevo usuario <a th:href="@{|/register|}">regístrate aquí</a></span>
+								</div>
 
 							</form>
 
