@@ -66,10 +66,10 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
               </div>
 
                 <li class="nav-item active">
-                  <a class="nav-link" sec:authorize="hasRole('ADMIN')" th:href="@{/products}">Gestión de productos</a>
+                  <a class="nav-link" sec:authorize="hasAuthority('ADMIN')" th:href="@{/products}">Gestión de productos</a>
                 </li>
                 <li class="nav-item active">
-                  <a class="nav-link" sec:authorize="hasRole('ADMIN')" th:href="@{/empleados}">Gestión de empleados</a>
+                  <a class="nav-link" sec:authorize="hasAuthority('ADMIN')" th:href="@{/empleados}">Gestión de empleados</a>
                 </li>
                 
                 
@@ -361,11 +361,11 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
             <h3 class="text-uppercase text-center mb-4">Bienvenidos al supermercado del equipo 2.</h3>
             <p class="lead text-center mb-5">Les damos la bienvenida a nuestro supermercado en donde podrás encontrar deliciosos vegetales y frutas frescas. Esperamos encuentres lo que estás buscando, ¡disfruta de tu compra!</p>
             <div class="card-deck">
-              <div class="card py-3">
+              <div class="card">
                 <img class="card-img-top img-thumbnail"  src="https://s.cornershopapp.com/product-images/1066502.jpg?versionId=hn5TH6zf.VetwzcqyHbbxfr9EimDYRPe"  alt="Card image cap">
                 <div class="card-block">
                   <h4 class="card-title text-center">Manzana</h4>
-                  <p class="card-text">Puede hacerse una descripción del producto si se quiere.</p>
+                  <p class="card-text"></p>
                   <!-- <a class="btn btn-primary" href="CarritoCompras.html" role="button">Agregar</a> -->
                 </div>
               </div>
@@ -373,7 +373,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
                 <img  class="card-img-top img-thumbnail" src="https://granjahakuna.cl/wp-content/uploads/2020/10/PERA.jpg"  alt="Card image cap">
                 <div class="card-block">
                   <h4 class="card-title text-center">Pera</h4>
-                  <p class="card-text">Puede hacerse una descripción del producto si se quiere.</p>
+                  <p class="card-text"></p>
                   <!-- <a class="btn btn-primary" href="CarritoCompras.html" role="button">Agregar</a> -->
                 </div>
               </div>
@@ -381,7 +381,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
                 <img class="card-img-top img-thumbnail" src="https://elhuertodeonil.es/wp-content/uploads/2022/02/brocoli-el-huerto-de-onil-comprar-fruta.jpg" alt="Card image cap">
                 <div class="card-block">
                   <h4 class="card-title text-center">Brocoli</h4>
-                  <p class="card-text">Puede hacerse una descripción del producto si se quiere.</p>
+                  <p class="card-text"></p>
                   <!-- <div class="col-sm-4 text-center">
                   <a class="btn btn-primary" href="CarritoCompras.html" role="button">Agregar</a>
                   </div> -->
@@ -391,7 +391,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
                 <img class="card-img-top img-thumbnail" src="https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YmFuYW5hc3xlbnwwfHwwfHw%3D&w=1000&q=80" alt="Card image cap">
                 <div class="card-block">
                   <h4 class="card-title text-center">Banano</h4>
-                  <p class="card-text">Puede hacerse una descripción del producto si se quiere.</p>
+                  <p class="card-text"></p>
                   <!-- <div class="col-sm-4 text-center">
                   <a class="btn btn-primary" href="CarritoCompras.html" role="button">Agregar</a>
                   </div> -->
@@ -403,7 +403,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
                 <img class="card-img-top img-thumbnail"  src="https://images.unsplash.com/photo-1605693740032-a99bdd19c8fe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"  alt="Card image cap">
                 <div class="card-block">
                   <h4 class="card-title text-center">Naranja</h4>
-                  <p class="card-text">Puede hacerse una descripción del producto si se quiere.</p>
+                  <p class="card-text"></p>
                   <!-- <a class="btn btn-primary" href="CarritoCompras.html" role="button">Agregar</a> -->
                 </div>
               </div>
@@ -411,7 +411,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
                 <img  class="card-img-top img-thumbnail" src="https://images.unsplash.com/photo-1630181898381-00d5f57de8eb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"  alt="Card image cap">
                 <div class="card-block">
                   <h4 class="card-title text-center">Fresa</h4>
-                  <p class="card-text">Puede hacerse una descripción del producto si se quiere.</p>
+                  <p class="card-text"></p>
                   <!-- <a class="btn btn-primary" href="CarritoCompras.html" role="button">Agregar</a> -->
                 </div>
               </div>
@@ -419,7 +419,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
                 <img class="card-img-top img-thumbnail" src="https://www.sosa.cat/media/catalog/product/cache/8/thumbnail/9df78eab33525d08d6e5fb8d27136e95/4/4/44101228-2.jpg" alt="Card image cap">
                 <div class="card-block">
                   <h4 class="card-title text-center">Mora</h4>
-                  <p class="card-text">Puede hacerse una descripción del producto si se quiere.</p>
+                  <p class="card-text"></p>
                   <!-- <div class="col-sm-4 text-center">
                   <a class="btn btn-primary" href="CarritoCompras.html" role="button">Agregar</a>
                   </div> -->
@@ -429,7 +429,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
                 <img class="card-img-top img-thumbnail" src="https://images.unsplash.com/photo-1576045057995-568f588f82fb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZXNwaW5hY2FzfGVufDB8fDB8fA%3D%3D&w=1000&q=80" alt="Card image cap">
                 <div class="card-block">
                   <h4 class="card-title text-center">Espinaca</h4>
-                  <p class="card-text">Puede hacerse una descripción del producto si se quiere.</p>
+                  <p class="card-text"></p>
                   <!-- <div class="col-sm-4 text-center">
                   <a class="btn btn-primary" href="CarritoCompras.html" role="button">Agregar</a>
                   </div> -->
