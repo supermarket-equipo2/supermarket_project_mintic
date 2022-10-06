@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+<title>Supermercado Equipo 2</title>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" th:href="@{/css/style.css}" media="screen" type="text/css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" 
+integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.shop.js"></script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='currentColor' class='bi bi-cart4' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z'/%3E%3C/svg%3E" sizes="any" type="image/svg+xml">
+    <script type="text/javascript" th:src="@{js/jquery.shop.js}"></script>
+</head>
+
+<body>
+
+<div id="site">
+	<header th:fragment="header">
+		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+		  <a class="navbar-brand alert-link" href="#">Supermercado Equipo 2</a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+
+		  <div class="collapse navbar-collapse" id="navbarCollapse">
+			<ul class="navbar-nav mr-auto">
+			  
+			 
+			  <div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav">
+				   <li class="nav-item"><a class="nav-link">Bienvenido [[${#httpServletRequest.remoteUser}]]
+					   </a>
+				   </li>
+				</ul>
+			</div>
+
+			  <li class="nav-item active">
+				<a class="nav-link" sec:authorize="hasAuthority('ADMIN')" th:href="@{/products}">Gestión de productos</a>
+			  </li>
+			  <li class="nav-item active">
+				<a class="nav-link" sec:authorize="hasAuthority('ADMIN')" th:href="@{/empleados}">Gestión de empleados</a>
+			  </li>
+			  
+			  
+			</ul>
+			<ul class="navbar-nav ml-auto">
+
+			  
+			 </li>
+
+			 <!-- Inicio Mensaje logout exitoso -->
+			 <li th:if="${param.logout}" class="nav-item"><a class="nav-link">Ha cerrado sesión correctamente
+			</a>
+			</li>
+			<!-- Fin Mensaje logout exitoso -->
+			
+			<div sec:authorize="!isAuthenticated()">
+			  <!-- Inicio botón login -->
+			  <li class="nav-item active">
+				<div>
+			  <form class="d-flex" th:action="@{/login}" method="get">
+				<input class="btn btn-secondary" type="submit" value="Iniciar sesión" />
+			 </form>
+			</div>
+			</li>
+			  <!-- Fin botón login -->
+			</div>
+			
+			  <div sec:authorize="isAuthenticated()">
+			  <!-- Inicio botón logout -->
+			  <li class="nav-item active">
+				  <div>
+					<!-- <form class="d-flex" th:action="@{/logout}" method="post" data-target="logoutSuccessModal"></form> -->
+					  <form class="d-flex" th:action="@{/logout}" method="post">
+						  <input class="btn btn-secondary" type="submit" value="Cerrar sesión" />
+					  </form>
+				  </div>
+			  </li>
+			  <!-- Fin botón logout -->
+			  </div>
+
+		
+			<!-- Inicio Home icon -->
+		<li>
+		  <a th:href="@{/}"><i class="bi bi-house-fill px-3" style="color: rgb(255, 255, 255);"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
+			<path fill-rule="evenodd" d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+			<path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+		  </svg></i></a>
+		</li>
+		<!-- Fin home icon -->
+	  
+	  </ul>
+	  
+		</nav>
+	</header>
+
+	  <br>
+
+	  <main role="main">
+
+	<div id="content px-3">
+		<div id="products">
+			<!-- <div class="card-deck px-5 py-lg-5"> -->
+			<div class="row mt-5 justify-content-center">
+				<div class="card">
+					<div class="product-image px-3 py-3">
+						<img src="https://s.cornershopapp.com/product-images/1066502.jpg?versionId=hn5TH6zf.VetwzcqyHbbxfr9EimDYRPe" alt=""  style="width:256px; height: 256px;"/>
+					</div>
+					<div class="product-description px-3 py-3" data-name="Manzana" data-price="2000">
+						<h3 class="product-name">Manzana</h3>
+						<p class="product-price">&dollar; 2000</p>
+						<form class="add-to-cart" th:action="@{/cart.html}" method="post">
+							<div>
+								<label for="qty-1">Cantidad</label>
+								<input type="text" name="qty-1" id="qty-1" class="qty" value="1" />
+							</div>
+							<p><input type="submit" value="Add to cart" class="btn" /></p>
+						</form>
+					</div>
+				</div>
+				
+				<div class="card">
+					<div class="product-image px-3 py-3">
+						<img src="https://granjahakuna.cl/wp-content/uploads/2020/10/PERA.jpg"  alt=""  style="width:256px; height: 256px;"/>
+					</div>
+					<div class="product-description px-3 py-3" data-name="Pera" data-price="2500">
+						<h3 class="product-name">Pera</h3>
+						<p class="product-price">&dollar; 2500</p>
+						<form class="add-to-cart" th:action="@{/cart.html}" method="post">
+							<div>
+								<label for="qty-2">Cantidad</label>
+								<input type="text" name="qty-2" id="qty-2" class="qty" value="1" />
+							</div>
+							<p><input type="submit" value="Add to cart" class="btn" /></p>
+						</form>
+					</div>
+				</div>
+				
+				<div class="card">
+					<div class="product-image px-3 py-3">
+						<img src="https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YmFuYW5hc3xlbnwwfHwwfHw%3D&w=1000&q=80"  alt=""  style="width:256px; height: 256px;"/>
+					</div>
+					<div class="product-description px-3 py-3" data-name="Banano" data-price="400">
+						<h3 class="product-name">Banano</h3>
+						<p class="product-price">&dollar; 400</p>
+						<form class="add-to-cart" th:action="@{/cart.html}" method="post">
+							<div>
+								<label for="qty-3">Cantidad</label>
+								<input type="text" name="qty-3" id="qty-3" class="qty" value="1" />
+							</div>
+							<p><input type="submit" value="Add to cart" class="btn" /></p>
+						</form>
+					</div>
+				</div>
+
+				<div class="card">
+					<div class="product-image px-3 py-3">
+						<img src="https://elpoderdelconsumidor.org/wp-content/uploads/2022/02/naranja-1.jpg"  alt=""  style="width:256px; height: 256px; object-fit:cover;"/>
+					</div>
+					<div class="product-description px-3 py-3" data-name="Naranja" data-price="2500">
+						<h3 class="product-name">Naranja</h3>
+						<p class="product-price">&dollar; 2500</p>
+						<form class="add-to-cart" th:action="@{/cart,html}" method="post">
+							<div>
+								<label for="qty-2">Cantidad</label>
+								<input type="text" name="qty-4" id="qty-4" class="qty" value="1" />
+							</div>
+							<p><input type="submit" value="Add to cart" class="btn" /></p>
+						</form>
+					</div>
+				</div>
+
+				<div class="card">
+					<div class="product-image px-3 py-3">
+						<img src="https://elhuertodeonil.es/wp-content/uploads/2022/02/brocoli-el-huerto-de-onil-comprar-fruta.jpg" alt=""  style="width:256px; height: 256px;"/>
+					</div>
+					<div class="product-description px-3 py-3" data-name="Brócoli" data-price="2000">
+						<h3 class="product-name">Brócoli</h3>
+						<p class="product-price">&dollar; 2000</p>
+						<form class="add-to-cart" th:action="@{/cart.html}" method="post">
+							<div>
+								<label for="qty-1">Cantidad</label>
+								<input type="text" name="qty-5" id="qty-5" class="qty" value="1" />
+							</div>
+							<p><input type="submit" value="Add to cart" class="btn" /></p>
+						</form>
+					</div>
+				</div>
+
+				<div class="card">
+					<div class="product-image px-3 py-3">
+						<img src="https://images.unsplash.com/photo-1576045057995-568f588f82fb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZXNwaW5hY2FzfGVufDB8fDB8fA%3D%3D&w=1000&q=80"  alt=""  style="width:256px; height: 256px;"/>
+					</div>
+					<div class="product-description px-3 py-3" data-name="Espinaca" data-price="2000">
+						<h3 class="product-name">Espinaca</h3>
+						<p class="product-price">&dollar; 2000</p>
+						<form class="add-to-cart" th:action="@{/cart.html}" method="post">
+							<div>
+								<label for="qty-1">Cantidad</label>
+								<input type="text" name="qty-6" id="qty-6" class="qty" value="1" />
+							</div>
+							<p><input type="submit" value="Add to cart" class="btn" /></p>
+						</form>
+					</div>
+				</div>
+
+				<div class="card">
+					<div class="product-image px-3 py-3">
+						<img src="https://dam.cocinafacil.com.mx/wp-content/uploads/2018/07/beneficios-de-la-papa-1-1170x655.jpg" alt=""  style="width:256px; height: 256px; object-fit:cover;"/>
+					</div>
+					<div class="product-description px-3 py-3" data-name="Papa" data-price="2000">
+						<h3 class="product-name">Papa</h3>
+						<p class="product-price">&dollar; 2000</p>
+						<form class="add-to-cart" th:action="@{/cart.html}" method="post">
+							<div>
+								<label for="qty-1">Cantidad</label>
+								<input type="text" name="qty-7" id="qty-7" class="qty" value="1" />
+							</div>
+							<p><input type="submit" value="Add to cart" class="btn" /></p>
+						</form>
+					</div>
+				</div>
+				
+				
+				
+				<div class="card">
+					<div class="product-image px-3 py-3">
+						<img src="https://www.antojoentucocina.com/wp-content/uploads/2022/02/zanahorias-1024x683.jpg"  alt=""  style="width:256px; height: 256px; object-fit: cover;"/>
+					</div>
+					<div class="product-description px-3 py-3" data-name="Zanahoria" data-price="400">
+						<h3 class="product-name">Zanahoria</h3>
+						<p class="product-price">&dollar; 1500</p>
+						<form class="add-to-cart" th:action="@{/cart.html}" method="post">
+							<div>
+								<label for="qty-3">Cantidad</label>
+								<input type="text" name="qty-8" id="qty-8" class="qty" value="1" />
+							</div>
+							<p><input type="submit" value="Add to cart" class="btn" /></p>
+						</form>
+					</div>
+				</div>
+
+			</div>
+				
+			
+		</div>
+	</div>
+	
+</main>
+
+</div>
+
+
+
+</body>
+</html>	

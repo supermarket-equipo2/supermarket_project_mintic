@@ -74,7 +74,9 @@ public class WebSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 // URL matching for accessibility
-                .antMatchers("/", "/login", "/register", "/CarritoCompras.html").permitAll()
+                .antMatchers("/", "/login", "/register", "/CarritoCompras.html", "/static/index.html", "carrito",
+                        "/carrito.html", "cart", "/cart.html", "checkout", "/checkout.html")
+                .permitAll()
                 // .antMatchers("/admin/**").hasAnyAuthority("ADMIN")
                 .antMatchers("/account/**").hasAnyAuthority("USER")
                 .antMatchers("/empleados", "/empleados/*", "/products", "/products/*").hasAnyAuthority("ADMIN")
